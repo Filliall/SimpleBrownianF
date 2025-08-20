@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SimpleBrownianF.ViewModels"
+             xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SimpleBrownianF.Views.MainView"
+             x:DataType="vm:MainViewModel">
+    <Grid ColumnDefinitions="300,*" RowDefinitions="*">
+        <!-- Left Side: Inputs -->
+        <Border Grid.Column="0" BorderBrush="#404040" BorderThickness="0,0,1,0">
+            <StackPanel Spacing="10" Margin="20">
+                <TextBlock Text="Simulation Parameters" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Initial Price:"/>
+                <NumericUpDown Value="{Binding InitialPrice}" Increment="1" FormatString="F2" Minimum="1"/>
+
+                <TextBlock Text="Volatility (Sigma σ):"/>
+                <Grid ColumnDefinitions="*,Auto" Margin="0,-5,0,0">
+                    <Slider Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Minimum="0.01" Maximum="2.0"
+                            TickFrequency="0.01"
+                            Value="{Binding Sigma}"/>
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Sigma, StringFormat='F2'}"
+                               MinWidth="40" TextAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Text="Drift (Mean μ):"/>
+                <Grid ColumnDefinitions="*,Auto" Margin="0,-5,0,0">
+                    <Slider Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Minimum="-1.0" Maximum="1.0"
+                            TickFrequency="0.01"
+                            Value="{Binding Mean}"/>
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding Mean, StringFormat='F2'}"
+                               MinWidth="40" TextAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+
+                <TextBlock Text="Number of Days:"/>
+                <NumericUpDown Value="{Binding NumDays}" Minimum="1" Maximum="10000"/>
+
+                <TextBlock Text="Number of Simulations:"/>
+                <Grid ColumnDefinitions="*,Auto" Margin="0,-5,0,0">
+                    <Slider Grid.Column="0"
+                            VerticalAlignment="Center"
+                            Minimum="1" Maximum="50"
+                            IsSnapToTickEnabled="True" TickFrequency="1"
+                            Value="{Binding NumberOfSimulations}"/>
+                    <TextBlock Grid.Column="1"
+                               Text="{Binding NumberOfSimulations, StringFormat='N0'}"
+                               MinWidth="40" TextAlignment="Right" VerticalAlignment="Center"/>
+                </Grid>
+
+                <Button Content="Start Simulation"
+                        Command="{Binding StartSimulationCommand}"
+                        IsEnabled="{Binding !StartSimulationCommand.IsRunning}"
+                        HorizontalAlignment="Stretch"
+                        Margin="0,15,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Right Side: Graph View Area -->
+        <Border Grid.Column="1"
+                Margin="10"
+                Background="#2E2E2E"
+                CornerRadius="4"
+                Padding="10">
+            <lvc:CartesianChart
+                Series="{Binding Series}"
+                XAxes="{Binding XAxes}"
+                YAxes="{Binding YAxes}"
+                ZoomMode="X"
+                LegendPosition="Bottom"
+                TooltipPosition="Top" />
+        </Border>
+    </Grid>
+</UserControl>
