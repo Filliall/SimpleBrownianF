@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+﻿﻿<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
     <PropertyGroup>
         <TargetFramework>net9.0-browser</TargetFramework>
         <OutputType>Exe</OutputType>
@@ -12,5 +12,9 @@
 
     <ItemGroup>
         <ProjectReference Include="..\SimpleBrownianF\SimpleBrownianF.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\**" />
     </ItemGroup>
 </Project>
