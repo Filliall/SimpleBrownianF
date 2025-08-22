@@ -4,11 +4,20 @@
         <TargetFramework>net9.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
-        <ApplicationId>com.CompanyName.SimpleBrownianF</ApplicationId>
+        <!-- IMPORTANTE: Escolha um ID único. Uma vez publicado, não pode ser alterado. -->
+        <ApplicationId>com.fabiodutram.browniansimpleapp</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-        <AndroidPackageFormat>apk</AndroidPackageFormat>
-        <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+        <ApplicationTitle>Brownian Simple App</ApplicationTitle>
+        <AndroidPackageFormat>aab</AndroidPackageFormat> <!-- Alterado de apk para aab -->
+    </PropertyGroup>    
+
+    <!-- Propriedades de Assinatura para o modo Release -->
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <AndroidKeyStore>True</AndroidKeyStore>
+        <AndroidSigningKeyAlias>$(AndroidSigningKeyAlias)</AndroidSigningKeyAlias>
+        <AndroidSigningKeyPass>$(AndroidSigningKeyPass)</AndroidSigningKeyPass>
+        <AndroidSigningStorePass>$(AndroidSigningStorePass)</AndroidSigningStorePass>
     </PropertyGroup>
 
     <ItemGroup>

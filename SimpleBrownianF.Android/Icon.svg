@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+  <title>Gráfico Monetário</title>
+  
+  <!-- Pilha de moedas 1 (mais baixa) -->
+  <path d="M18 16v-1c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v1c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2z"/>
+  <path d="M18 17v1c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2v-1h12z" opacity="0.6"/>
+  
+  <!-- Pilha de moedas 2 (média) -->
+  <path d="M16 11V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2z"/>
+  <path d="M16 12v1c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2v-1h10z" opacity="0.6"/>
+  
+  <!-- Pilha de moedas 3 (mais alta) -->
+  <path d="M14 6V4c0-1.1-.9-2-2-2H8C6.9 2 6 2.9 6 4v2c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2z"/>
+  <path d="M14 7v1c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2V7h8z" opacity="0.6"/>
+
+</svg>
