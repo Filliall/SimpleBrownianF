@@ -1,6 +1,6 @@
 using Android.App;
-using Android.Content.PM;
 using Android.Content; // Necessário para Intent
+using Android.Content.PM;
 using Android.OS; // Necessário para Handler e Looper
 
 

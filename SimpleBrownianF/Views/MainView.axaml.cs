@@ -1,7 +1,7 @@
-using System;
-using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using System;
+using System.Diagnostics;
 
 namespace SimpleBrownianF.Views;
 
@@ -19,8 +19,8 @@ public partial class MainView : UserControl
         }
 
     }
-    
-     private void OnBuyMeACoffeeClicked(object? sender, RoutedEventArgs e)
+
+    private void OnBuyMeACoffeeClicked(object? sender, RoutedEventArgs e)
     {
         try
         {

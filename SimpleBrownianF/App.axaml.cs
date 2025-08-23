@@ -1,9 +1,9 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using SimpleBrownianF.ViewModels;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
+using SimpleBrownianF.ViewModels;
 using SimpleBrownianF.Views;
 
 namespace SimpleBrownianF;
@@ -13,7 +13,7 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
-        
+
         LiveCharts.Configure(config =>
             config
                 .AddSkiaSharp()
@@ -21,7 +21,7 @@ public partial class App : Application
                 .AddDarkTheme());
     }
 
-     public override void OnFrameworkInitializationCompleted()
+    public override void OnFrameworkInitializationCompleted()
     {
         var rootViewModel = new RootViewModel();
 

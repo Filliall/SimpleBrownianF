@@ -1,5 +1,5 @@
-using System;
 using SimpleBrownianF.Models;
+using System;
 
 namespace SimpleBrownianF.Services
 {
