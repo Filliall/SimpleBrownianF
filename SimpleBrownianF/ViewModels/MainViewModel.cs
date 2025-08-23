@@ -15,8 +15,10 @@ using SimpleBrownianF.Services;
 
 namespace SimpleBrownianF.ViewModels;
 
+
 public partial class MainViewModel : ObservableObject
 {
+    private readonly INavigationService _navigationService;
     private readonly IBrownianService _brownianService;
     private readonly Random _random = new();
     private static readonly SKColor[] s_palette =
@@ -54,8 +56,11 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private Axis[] _yAxes = [];
 
-    public MainViewModel()
+
+
+    public MainViewModel(INavigationService navigationService)
     {
+        _navigationService = navigationService;
         _brownianService = new BrownianService();
         InitializeAxes();
         // Generate an initial path when the application starts
@@ -136,4 +141,7 @@ public partial class MainViewModel : ObservableObject
 
         Series = seriesList.ToArray();
     }
+
+    [RelayCommand]
+    private void NavigateToAbout() => _navigationService.NavigateToAboutView();
 }

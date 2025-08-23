@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SimpleBrownianF.ViewModels"
+             xmlns:input="using:Avalonia.Input"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="600"
+             x:Class="SimpleBrownianF.Views.AboutView"
+             x:DataType="vm:AboutViewModel">
+
+    <UserControl.Styles>
+        <!-- Este estilo faz o botão com a classe "link" parecer um hiperlink -->
+        <Style Selector="Button.link">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+           
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <!-- Estiliza o TEXTO dentro do botão para parecer um link -->
+        <Style Selector="Button.link TextBlock">
+            <Setter Property="Foreground" Value="RoyalBlue"/>
+            <Setter Property="TextDecorations">
+                <TextDecoration Location="Underline"/>
+            </Setter>
+        </Style>
+        <!-- Muda a cor do TEXTO quando o mouse passa por cima -->
+        <Style Selector="Button.link:pointerover TextBlock">
+            <Setter Property="Foreground" Value="CornflowerBlue"/>
+        </Style>
+    </UserControl.Styles>
+    
+    <StackPanel Spacing="15" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20">
+        <TextBlock Text="Sobre o App" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <TextBlock Text="Obrigado por usar o Brownian Simple App!" TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
+
+        <!-- QR Code Image -->
+        <Image Source="{Binding QrCodePath}"
+               Width="100" Height="100"
+               Margin="0,10,0,0"
+               HorizontalAlignment="Center"/>
+
+        <StackPanel Spacing="5" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <TextBlock Text="me ajude com um cafe" HorizontalAlignment="Center"/>
+            <Button Content="{Binding BuyMeACoffeeUrl}"
+                    Command="{Binding OpenBuyMeACoffeeCommand}"
+                    CommandParameter="{Binding $self}"
+                    Classes="link" />
+        </StackPanel>
+
+        <!-- Botão para Voltar -->
+		<Button Content="Voltar"
+                Command="{Binding NavigateBackCommand}"
+                HorizontalAlignment="Center"
+                Margin="0,30,0,0"/>
+    </StackPanel>
+</UserControl>

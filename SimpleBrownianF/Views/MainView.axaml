@@ -62,10 +62,10 @@
                         HorizontalAlignment="Stretch"
                         Margin="0,15,0,0"/>
 
-                          <Button Name="BuyMeACoffeeButton"
-            Content="Gostou do App? Pague-me um café ☕"
-            HorizontalAlignment="Center"
-            Margin="0,20,0,20" />
+                <Button Content="Gostou do App? Pague-me um café ☕"
+                        Command="{Binding NavigateToAboutCommand}"
+                        HorizontalAlignment="Center"
+                        Margin="0,20,0,20" />
 
                 
             </StackPanel>

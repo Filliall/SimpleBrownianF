@@ -21,20 +21,22 @@ public partial class App : Application
                 .AddDarkTheme());
     }
 
-    public override void OnFrameworkInitializationCompleted()
+     public override void OnFrameworkInitializationCompleted()
     {
+        var rootViewModel = new RootViewModel();
+
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel()
+                DataContext = rootViewModel
             };
         }
-        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
+        else if (ApplicationLifetime is ISingleViewApplicationLifetime singleView)
         {
-            singleViewPlatform.MainView = new MainView
+            singleView.MainView = new RootView
             {
-                DataContext = new MainViewModel()
+                DataContext = rootViewModel
             };
         }
 
