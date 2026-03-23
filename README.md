@@ -1,0 +1,3 @@
+Previsão Browniana para margens de açoes ou lucros financeiros...
+
+Projeto feito em Avalonia.
